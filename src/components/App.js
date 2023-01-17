@@ -6,33 +6,17 @@ const App = () => {
   const [color , setColor] = useState();
  
  
-  function fizzOrBuzz() {
-    if(counter % 3 == 0) setColor("fizz")
-    else if(counter % 5 == 0) setColor("buzz")
-    else if ((counter % 3 == 0) && (counter % 5 == 0)) setColor('fizzbuzz')
-     else setColor('normal');
+  const setClassName = () => {
+    if(counter % 3 == 0) return "fizz";
+    if(counter % 5 == 0) return "buzz"
+    if ((counter % 3 == 0) && (counter % 5 == 0)) return 'fizzbuzz';
+     return 'normal';
   }
-
-  // fizzOrBuzz();
-  
- const handleDecrease = () => {
-   if(counter > 1) setCounter(counter - 1);
-     fizzOrBuzz();
-  }
-
-  const handleIncrease = () => {
-    setCounter(counter + 1);
-    fizzOrBuzz();
-  }
-
-
- 
-
   return (
     <div id="main">
-      <button id="increment" onClick={handleIncrease}>increment</button>
-      <div id="counter" className={color || 'normal'}>{counter}</div>
-      <button id="decrement" onClick={handleDecrease}>decrement</button>
+      <button id="increment" onClick={() => setCounter(counter + 1)}>increment</button>
+      <div id="counter" className={setClassName()}>{counter}</div>
+      <button id="decrement" onClick={() => setCounter(counter - 1)}>decrement</button>
     </div>
   )
 
