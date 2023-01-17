@@ -7,9 +7,9 @@ const App = () => {
  
  
   const setClassName = () => {
+    if ((counter % 3 == 0) && (counter % 5 == 0)) return 'fizzbuzz';
     if(counter % 3 == 0) return "fizz";
     if(counter % 5 == 0) return "buzz"
-    if ((counter % 3 == 0) && (counter % 5 == 0)) return 'fizzbuzz';
      return 'normal';
   }
   return (
